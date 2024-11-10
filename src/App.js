@@ -1,17 +1,22 @@
-
 import React from "react";
-import Chatbot from "./Chatbot";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import AskJuris from "./pages/AskJuris";
+import Welcome from "./pages/Welcome";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome to Juris Chatbot</h1>
-        <p>Ask Juris your questions, and get instant responses!</p>
-      </header>
-      <Chatbot />
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1>Welcome to Ask Juris Chatbot</h1>
+        </header>
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/chat" element={<AskJuris />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
